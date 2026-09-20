@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J.A.R.V.I.S. // EVA NEXUS</title>
+<meta name="description" content="Eva's cyberpunk NASA data interface using public space-data feeds and local AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<div class="scanlines"></div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand-mark"><span>EV</span><i></i></div>
+    <div class="brand-copy">
+      <div class="brand-name">EVA<span>/</span>NEXUS</div>
+      <div class="brand-sub">MISSION INTELLIGENCE OS</div>
+    </div>
+
+    <div class="side-label">SYSTEM</div>
+    <nav class="side-nav">
+      <button class="nav-btn active" data-dir="neo"><span>01</span>RADAR</button>
+      <button class="nav-btn" data-dir="apod"><span>02</span>APOD</button>
+      <button class="nav-btn" data-dir="mars"><span>03</span>MARS <em>ARCHIVED</em></button>
+      <button class="nav-btn" data-dir="iss"><span>04</span>ISS TRACK</button>
+      <button class="nav-btn" data-dir="solar"><span>05</span>SOLAR</button>
+      <button class="nav-btn" data-dir="earth"><span>06</span>EARTH</button>
+    </nav>
+
+    <div class="side-label">TOOLS</div>
+    <button class="utility-btn" id="refreshbtn"><span>↻</span>SYNC TELEMETRY</button>
+    <button class="utility-btn" id="commandbtn"><span>⌘</span>COMMAND PALETTE</button>
+    <button class="utility-btn" id="voicebtn"><span>◉</span>VOICE LINK</button>
+
+    <div class="sidebar-footer">
+      <div class="author-line">DESIGNED + CODED BY <b>EVA</b></div>
+      <div class="build-line">NEXUS BUILD // 2026.09</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">J.A.R.V.I.S. // EVA NEXUS CORE</div>
+        <h1>MISSION <span>CONTROL</span></h1>
+      </div>
+      <div class="top-actions">
+        <div class="system-pill"><i></i>CORE ONLINE</div>
+        <div class="clock" id="pill-clock">--:-- UTC</div>
+      </div>
+    </header>
+
+    <div class="alert" id="errbanner"></div>
+
+    <section class="telemetry-grid" id="mstrip">
+      <article class="telemetry-card cyan">
+        <div class="telemetry-top"><span>NEO INDEX</span><b>01</b></div>
+        <div class="telemetry-value" id="ms-neo">—</div>
+        <div class="telemetry-meta"><span id="ms-neo-status">AWAITING TELEMETRY</span><span id="ms-neo-trend">7D BASELINE</span></div>
+      </article>
+      <article class="telemetry-card violet">
+        <div class="telemetry-top"><span>CREW LINK</span><b>02</b></div>
+        <div class="telemetry-value" id="ms-crew">—</div>
+        <div class="telemetry-meta"><span id="ms-crew-level">AWAITING TELEMETRY</span><span id="ms-crew-status">ISS FEED</span></div>
+      </article>
+      <article class="telemetry-card amber">
+        <div class="telemetry-top"><span>SOLAR LOAD</span><b>03</b></div>
+        <div class="telemetry-value" id="ms-solar">—</div>
+        <div class="telemetry-meta"><span id="ms-solar-status">AWAITING TELEMETRY</span><span id="ms-solar-detail">QUIET SUN</span></div>
+      </article>
+      <article class="telemetry-card green">
+        <div class="telemetry-top"><span>UTC CLOCK</span><b>04</b></div>
+        <div class="telemetry-value clock-value" id="ms-clock">--:--:--</div>
+        <div class="telemetry-meta"><span id="ms-date">MISSION CLOCK</span><span>LIVE</span></div>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <div class="left-stack">
+        <div class="panel command-panel">
+          <div class="panel-head">
+            <div><span class="kicker">PRIMARY DISPLAY</span><h2>LIVE PUBLIC DATA</h2></div>
+            <div class="signal"><i></i>ENCRYPTED LINK</div>
+          </div>
+          <div class="display-panel" id="display"></div>
+        </div>
+
+        <div class="quick-actions">
+          <button class="quick-btn" data-dir="neo"><span>NEO</span>THREAT SCAN</button>
+          <button class="quick-btn" data-dir="iss"><span>ISS</span>ORBITAL LOCK</button>
+          <button class="quick-btn" data-dir="solar"><span>SOLAR</span>WEATHER</button>
+          <button class="quick-btn" data-dir="earth"><span>EARTH</span>EVENTS</button>
+          <button class="quick-btn" data-dir="apod"><span>DEEP</span>OPTICS</button>
+          <button class="quick-btn" data-dir="mars"><span>MARS</span>ARCHIVED
+        </div>
+      </div>
+
+      <section class="ai-panel">
+        <div class="ai-header">
+          <div class="core">
+            <div class="core-rings r1"></div><div class="core-rings r2"></div><div class="core-rings r3"></div>
+            <div class="core-center">J</div>
+          </div>
+          <div>
+            <div class="kicker">ARTIFICIAL INTELLIGENCE</div>
+            <h2>J.A.R.V.I.S.</h2>
+            <p>JOINT RECONNAISSANCE &amp; VIGILANCE INTELLIGENCE SYSTEM</p>
+          </div>
+        </div>
+
+        <div class="chat-box" id="chatlog"></div>
+
+        <div class="prompt-row">
+          <button class="prompt-chip" data-prompt="Give me a concise summary of the current space telemetry.">STATUS</button>
+          <button class="prompt-chip" data-prompt="Explain the most interesting thing in the current NASA data.">ANALYZE</button>
+          <button class="prompt-chip" data-prompt="What should I monitor right now?">MONITOR</button>
+        </div>
+
+        <form class="chat-form" id="chatform" autocomplete="off">
+          <span class="prompt-symbol">›_</span>
+          <input class="chat-input" id="chatinput" type="text" placeholder="Enter command or ask JARVIS..." maxlength="500">
+          <button class="icon-btn" id="micbtn" type="button" title="Voice input" aria-label="Voice input">◉</button>
+          <button class="send-btn" type="submit">TRANSMIT ↗</button>
+        </form>
+      </section>
+    </section>
+
+    
+<section class="dual-chat-section" id="dual-chatbots">
+  <div class="dual-chat-heading">
+    <div>
+      <span class="kicker">TWO INDEPENDENT CHAT SYSTEMS</span>
+      <h2>SELECT YOUR <span>CHATBOT</span></h2>
+    </div>
+    <div class="dual-chat-note">SEPARATE INPUTS · SEPARATE CHAT LOGS</div>
+  </div>
+
+  <div class="dual-chat-grid">
+    <article class="dual-chat-card general-card" aria-labelledby="general-chat-title">
+      <div class="dual-chat-card-head">
+        <div>
+          <span class="dual-chat-tag">01 / GENERAL</span>
+          <h3 id="general-chat-title">GENERAL INSTANT CHATBOT</h3>
+          <p>Fast answers for everyday questions, coding, schoolwork, writing, mathematics, and technology.</p>
+        </div>
+        <div class="dual-chat-status">FAST</div>
+      </div>
+      <div class="dual-chat-log" id="general-chat-log" aria-live="polite">
+        <div class="dual-message bot"><strong>GENERAL CORE</strong><br>Ask a general question. This chatbot is separate from the NASA Research Core.</div>
+      </div>
+      <form class="dual-chat-form" id="general-chat-form">
+        <label class="sr-only" for="general-chat-input">General chatbot question</label>
+        <input id="general-chat-input" type="text" maxlength="1600" autocomplete="off" placeholder="Type a general question..." required>
+        <button type="submit">SEND ↗</button>
+      </form>
+      <div class="dual-chat-foot">Everyday knowledge · Coding · School · Writing · Math</div>
+    </article>
+
+    <article class="dual-chat-card nasa-card" aria-labelledby="nasa-chat-title">
+      <div class="dual-chat-card-head">
+        <div>
+          <span class="dual-chat-tag">02 / NASA</span>
+          <h3 id="nasa-chat-title">NASA RESEARCH CORE CHATBOT</h3>
+          <p>Retrieves relevant public NASA data, calculates derived statistics, and generates longer research answers with source context, methodology, and limitations.</p>
+        </div>
+        <div class="dual-chat-status">RESEARCH</div>
+      </div>
+      <div class="dual-chat-log" id="nasa-chat-log" aria-live="polite">
+        <div class="dual-message bot"><strong>NASA RESEARCH CORE</strong><br>Ask about asteroids, solar activity, APOD, Earth events, NASA missions, or space science. This chatbot has its own input and conversation history.</div>
+      </div>
+      <form class="dual-chat-form" id="nasa-chat-form">
+        <label class="sr-only" for="nasa-chat-input">NASA research chatbot question</label>
+        <input id="nasa-chat-input" type="text" maxlength="2200" autocomplete="off" placeholder="Type a NASA research question..." required>
+        <button type="submit">RESEARCH ↗</button>
+      </form>
+      <div class="dual-chat-foot">Public NASA feeds · Statistics · Sources · Research limitations</div>
+    </article>
+  </div>
+</section>
+
+<footer class="footer">
+      <span>PUBLIC SPACE DATA RELAY</span><span>LOCAL QWEN AI CORE</span><span>LEAFLET ORBITAL MAP</span><span>AUTHORED BY EVA</span>
+      <span class="shortcut">CTRL + K COMMAND PALETTE</span>
+    </footer>
+  </main>
+</div>
+
+<div class="command-overlay" id="commandOverlay">
+  <div class="command-modal">
+    <div class="command-modal-head"><span>COMMAND PALETTE</span><button id="closeCommand">ESC</button></div>
+    <input id="commandSearch" placeholder="Search directive or type a prompt..." autocomplete="off">
+    <div id="commandList">
+      <button data-dir="neo"><b>RADAR</b><span>Scan near-Earth objects</span></button>
+      <button data-dir="apod"><b>APOD</b><span>Load today's astronomy image</span></button>
+      <button data-dir="mars"><b>MARS</b><span>Archived rover API status</span></button>
+      <button data-dir="iss"><b>ISS</b><span>Lock orbital position</span></button>
+      <button data-dir="solar"><b>SOLAR</b><span>Analyze solar activity</span></button>
+      <button data-dir="earth"><b>EARTH</b><span>Scan active Earth events</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
