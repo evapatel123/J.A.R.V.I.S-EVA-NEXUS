@@ -3,7 +3,9 @@
 
 ### A Futuristic NASA Data Interface with Dual AI Chatbots
 
-EVA NEXUS is a futuristic, browser-based space research and AI interface designed by **Eva Patel**. It combines publicly available NASA data, local browser-based AI, interactive telemetry-inspired visualizations, and two distinct chatbot experiences in a cyberpunk-inspired interface.
+EVA NEXUS is a futuristic, browser-based space research and AI interface designed by **Eva Patel**. It combines publicly available NASA data, local browser-based AI, interactive telemetry-inspired visualizations, and two distinct chatbot experiences in a cyberpunk-inspired interface. If you want to view what it looks like, make sure you go to the screenshots folder and look at the screenshot :)
+
+This project is also deployed through Github Pages, so it is accessible through the web.
 
 The project is designed to make space data, research, programming, and learning more accessible through an interactive digital environment that runs directly in the browser.
 
