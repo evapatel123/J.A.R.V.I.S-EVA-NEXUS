@@ -1,0 +1,184 @@
+
+PROPRIETARY SOFTWARE LICENSE
+ALL RIGHTS RESERVED
+
+Copyright (c) 2026 Eva Patel
+Project: EVA NEXUS
+
+IMPORTANT: PLEASE READ THIS LICENSE CAREFULLY BEFORE ACCESSING,
+USING, COPYING, MODIFYING, OR DISTRIBUTING THIS SOFTWARE.
+
+1. OWNERSHIP
+
+The EVA NEXUS project, including its original source code, interface design,
+visual identity, written content, custom styling, original JavaScript logic,
+project structure, branding, and other original materials, is owned by
+Eva Patel ("Copyright Holder"), except for third-party components and
+materials that are subject to their respective licenses.
+
+All rights not expressly granted under this license are reserved by the
+Copyright Holder.
+
+2. LICENSE GRANT
+
+No general license is granted to copy, modify, distribute, publish,
+sublicense, sell, lease, or create derivative works from the original
+EVA NEXUS project.
+
+Any use beyond viewing the publicly accessible project or repository
+requires prior written permission from the Copyright Holder.
+
+Public availability of the source code does not constitute permission
+to reuse, reproduce, modify, distribute, or commercialize the project.
+
+3. RESTRICTIONS
+
+Without prior written permission from the Copyright Holder, you may not:
+
+a. Copy or reproduce the original source code in whole or in part.
+
+b. Modify, adapt, translate, or create derivative works based on the project.
+
+c. Redistribute, republish, sublicense, sell, lease, or otherwise share
+   copies of the project or substantial portions of its source code.
+
+d. Use the project's original interface design, branding, visual identity,
+   or distinctive presentation to create a substantially similar product.
+
+e. Remove, conceal, or alter copyright notices or ownership statements.
+
+f. Use the EVA NEXUS name, logo, branding, or identity to imply affiliation,
+   endorsement, sponsorship, or authorization by the Copyright Holder.
+
+g. Incorporate substantial portions of the project into another application,
+   website, product, service, template, or commercial offering.
+
+h. Use the project or substantial portions of its original materials to
+   train, develop, or improve a competing product without written permission,
+   to the extent such restriction is enforceable under applicable law.
+
+4. PERSONAL VIEWING
+
+You may view the publicly accessible repository and interact with the
+publicly deployed website for personal, educational, and evaluation purposes.
+
+This permission does not grant the right to download, reproduce, modify,
+redistribute, republish, or reuse the original project materials.
+
+Viewing the project through a web browser does not constitute a transfer
+of ownership or a license to the underlying source code.
+
+5. WRITTEN PERMISSION
+
+Requests for permission should be submitted to the Copyright Holder.
+
+A permission request should describe:
+
+- The specific materials you want to use.
+- The intended purpose of the use.
+- Whether the use is personal, educational, nonprofit, or commercial.
+- Where and how the materials will be distributed.
+- Any modifications you intend to make.
+
+Permission is valid only when expressly granted in writing by the
+Copyright Holder.
+
+Silence, lack of response, or public availability of the repository
+does not constitute permission.
+
+6. THIRD-PARTY MATERIALS
+
+This license applies only to materials owned by the Copyright Holder.
+
+The project may contain or interact with third-party materials, including
+but not limited to:
+
+- NASA APIs and data services.
+- Third-party APIs.
+- External fonts.
+- JavaScript libraries.
+- Browser-based AI libraries.
+- AI models.
+- Public datasets.
+- External services.
+
+Third-party materials are not covered by this license unless explicitly
+stated otherwise. Their respective licenses, terms of service, and usage
+requirements continue to apply.
+
+Users are responsible for reviewing and complying with all applicable
+third-party requirements.
+
+Nothing in this license grants permission to use third-party materials
+in a manner prohibited by their respective terms or licenses.
+
+7. NO NASA AFFILIATION
+
+EVA NEXUS is an independent project.
+
+The project is not an official NASA product and is not sponsored,
+endorsed, operated, or affiliated with NASA unless explicitly stated
+in a separate written agreement.
+
+NASA names, marks, data, and services may be subject to separate
+policies, terms, or restrictions.
+
+8. NO WARRANTY
+
+THE SOFTWARE AND ASSOCIATED MATERIALS ARE PROVIDED "AS IS", WITHOUT
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, TO THE MAXIMUM EXTENT
+PERMITTED BY APPLICABLE LAW.
+
+THE COPYRIGHT HOLDER DOES NOT GUARANTEE THAT THE SOFTWARE, DATA,
+AI-GENERATED RESPONSES, EXTERNAL SERVICES, OR INFORMATION PRESENTED
+BY THE PROJECT WILL BE ACCURATE, COMPLETE, AVAILABLE, SECURE, OR
+SUITABLE FOR ANY PARTICULAR PURPOSE.
+
+THE PROJECT MUST NOT BE USED AS THE SOLE BASIS FOR EMERGENCY,
+SCIENTIFIC, AVIATION, AEROSPACE, MEDICAL, FINANCIAL, SECURITY-CRITICAL,
+OR OTHER HIGH-STAKES DECISIONS.
+
+9. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE COPYRIGHT
+HOLDER SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, CONSEQUENTIAL, OR OTHER DAMAGES ARISING FROM OR RELATED
+TO THE USE OF, INABILITY TO USE, MODIFICATION, DISTRIBUTION, OR
+RELIANCE UPON THE SOFTWARE OR ASSOCIATED MATERIALS.
+
+10. TERMINATION
+
+Any permission granted under a separate written agreement may be
+terminated if the recipient violates the terms of that agreement.
+
+Upon termination, the recipient must stop all uses that are no longer
+authorized and remove unauthorized copies or distributions to the
+extent required by applicable law or the written agreement.
+
+11. ENFORCEMENT
+
+Unauthorized use, reproduction, distribution, modification, or
+misrepresentation may constitute a violation of applicable copyright,
+trademark, contract, or other laws.
+
+The Copyright Holder reserves all available rights and remedies under
+applicable law.
+
+12. CHANGES TO THIS LICENSE
+
+The Copyright Holder may update this license for future versions of
+the project.
+
+Unless otherwise stated in writing, a revised license does not
+automatically authorize previously unauthorized uses of earlier
+versions.
+
+13. CONTACT
+
+For licensing, collaboration, or permission requests, contact:
+
+Eva Patel
+
+All rights reserved.
+
+END OF LICENSE
